@@ -80,7 +80,7 @@ public class Koneksi {
         return daftarCustomer;
     }
     
-    public void addMahasiswa(Customer cus) {
+    public void addCustomer(Customer cus) {
         connect();
         String query = "INSERT INTO customer VALUES (";
         query += "'" + cus.getNamaCustomer() + "',";
@@ -137,6 +137,30 @@ public class Koneksi {
         }
         disconnect();
     }
+    
+    public boolean cekUserLog(String x, String y){
+        boolean cek = false;
+        for (Customer c : daftarCustomer) {
+            if (c.getUsernameCustomer().equals(x) && c.getPasswordCustomer().equals(y)){
+                cek = true;
+                break;
+            }
+        }
+        return cek;
+    }
+    
+    public String searchNama(String x){
+        String nama = null;
+        for (Customer c : daftarCustomer){
+            if (c.getNamaCustomer().equals(x)) {
+                nama = c.getNamaCustomer();
+            }
+        }
+        return nama;
+    }
+    
+    
+    
 }
     
     

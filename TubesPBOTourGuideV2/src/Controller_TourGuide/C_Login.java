@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author 
+ * @author
  */
 public class C_Login implements ActionListener {
 
@@ -34,9 +34,31 @@ public class C_Login implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource().equals(viewLogin.getBtnbuatakun())){
-            C_Register regis = new C_Register();
+        Object source = e.getSource();
+        if (e.getSource().equals(viewLogin.getbtnbuatakun())) {
+            new C_Register();
             viewLogin.dispose();
+        } else if (source.equals(viewLogin.getbtnmasuk())) {
+            validasiCustLogin();
+        } else if (source.equals(viewLogin.getbtnMasukAdmin())) {
+            new C_AdmLogin();
+        }
+    }
+
+    void validasiCustLogin() {
+        usernameCustomer = viewLogin.getUsernameCustomer();
+        passwordCustomer = viewLogin.getPasswordCustomer();
+        String nama;
+        if (usernameCustomer.isEmpty() || passwordCustomer.isEmpty()) {
+            viewLogin.showMessage("Masukkan Username dan Password", "Error", 0);
+        } else {
+            if(kn.cekUserLog(usernameCustomer, passwordCustomer)){
+                nama = kn.searchNama(usernameCustomer);
+                new C_Menu();
+                viewLogin.setVisible(false);
+            } else{
+                viewLogin.showMessage("Username atau Password Salah","Error", 0);
+            }
         }
     }
 
