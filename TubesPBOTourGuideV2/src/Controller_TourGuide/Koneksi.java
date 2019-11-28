@@ -86,18 +86,29 @@ public class Koneksi {
         query += "'" + cus.getNamaCustomer() + "',";
         query += "'" + cus.getIdCustomer()+ "',";
         query += "'" + cus.getAlamatCustomer()+ "',";
-        query += "'" + cus.getNotelpCustomer()+ "'";
-        query += "'" + cus.getEmailCustomer()+ "'";
-        query += "'" + cus.getUsernameCustomer()+ "'";
-        query += "'" + cus.getPasswordCustomer()+ "'";
-               query += ")";
+        query += "" + cus.getNotelpCustomer()+ ",";
+        query += "'" + cus.getEmailCustomer()+ "',";
+        query += "'" + cus.getTtlCustomer()  + "',";
+        query += "'" + cus.getUsernameCustomer()+ "',";
+        query += "'" + cus.getPasswordCustomer()+ "',";
+        query += "'" + cus.getEmailTourGuide()+ "',";
+        query += "'" + cus.getAlamatTourGuide()+ "'";
+        query += ")";
         if (manipulate(query)) daftarCustomer.add(cus);
         disconnect();
     }
-     
+
+    
+    
+    
+    
+    
+    
+    
+    
     public void delCustomer(String id) {
         connect();
-        String query = "DELETE FROM Customer WHERE nim='" + id + "'";
+        String query = "DELETE FROM customer WHERE nim='" + id + "'";
         if (manipulate(query)){
             for (Customer c : daftarCustomer) {
                 if (c.getIdCustomer().equals(id)){
@@ -111,12 +122,13 @@ public class Koneksi {
     
     public void updateCustomer(Customer cus) {
         connect();
-        String query = "UPDATE mahasiswa SET";
+        String query = "UPDATE customer SET";
          query += "'" + cus.getNamaCustomer() + "',";
         query += "'" + cus.getIdCustomer()+ "',";
         query += "'" + cus.getAlamatCustomer()+ "',";
         query += "'" + cus.getNotelpCustomer()+ "'";
         query += "'" + cus.getEmailCustomer()+ "'";
+        query += "'" + cus.getTtlCustomer()+ "'";
         query += "'" + cus.getUsernameCustomer()+ "'";
         query += "'" + cus.getPasswordCustomer()+ "'";
         if (manipulate(query)){
@@ -127,6 +139,7 @@ public class Koneksi {
                     c.setAlamatCustomer(cus.getAlamatCustomer());
                     c.setNotelpCustomer(cus.getNotelpCustomer());
                     c.setEmailCustomer(cus.getEmailCustomer());
+                    c.setTtlCustomer(cus.getTtlCustomer());
                     c.setUsernameCustomer(cus.getUsernameCustomer());
                     c.setPasswordCustomer(cus.getPasswordCustomer());
                      
@@ -165,7 +178,5 @@ public class Koneksi {
     
     
     
-    
-
-
+ 
 

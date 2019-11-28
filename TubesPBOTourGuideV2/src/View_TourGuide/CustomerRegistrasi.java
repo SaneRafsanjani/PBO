@@ -6,13 +6,18 @@
 package View_TourGuide;
 
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
  * @author rafsa
  */
 public class CustomerRegistrasi extends javax.swing.JFrame {
-
+    public String alamatCustomer;
+    
     /**
      * Creates new form CustomerRegister
      */
@@ -22,33 +27,66 @@ public class CustomerRegistrasi extends javax.swing.JFrame {
 
    
     public String getNamaCustomer(){
-      return txtnama.toString();
+      return txtnama.getText();
     }
     
     public String  getttlCustomer(){
-      return txtttl.toString();
+      return txtttl.getText();
     }
        
     public String  getUsernameCustomer(){
-      return txtusername.toString();
+      return txtusername.getText();
     }
           
     public String  getPasswordCustomer(){
-      return txtpassword.toString();
+      return txtpassword.getText();
     }
     
     public String  getEmailCustomer(){
-      return txtemail.toString();
+      return txtemail.getText();
+    }
+
+    public JTextArea getTxtalamat() {
+        return txtalamat;
+    }
+
+    public JTextField getTxtemail() {
+        return txtemail;
+    }
+
+    public JTextField getTxtnama() {
+        return txtnama;
+    }
+
+    public JTextField getTxtnomortelepon() {
+        return txtnomortelepon;
+    }
+
+    public JTextField getTxtpassword() {
+        return txtpassword;
+    }
+
+    public JTextField getTxtttl() {
+        return txtttl;
+    }
+
+    public JTextField getTxtusername() {
+        return txtusername;
     }
     
     public String notelpCustomer(){
-      return txtnomortelepon.toString();
+      return txtnomortelepon.getText();
     }
         
     public String getalamatCustomer(){
-      return txtalamat.toString();
+      return txtalamat.getText();
     }
-        
+
+    public JButton getBtndaftar() {
+        return btndaftar;
+    }
+
+  
         
     public void addActionListener(ActionListener x) {
         btndaftar.addActionListener(x);
@@ -262,4 +300,8 @@ public class CustomerRegistrasi extends javax.swing.JFrame {
     private javax.swing.JTextField txtttl;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
+
+    public void showMessage(String message, String error, int i) {
+        JOptionPane.showMessageDialog(this, message);
+    }
 }

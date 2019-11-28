@@ -21,9 +21,9 @@ public class C_Login implements ActionListener {
     private CustomerRegistrasi viewRegis;
     private Koneksi kn;
     private String idCustomer;
+
     private String usernameCustomer;
     private String passwordCustomer;
-
     public C_Login() {
         kn = new Koneksi();
         viewLogin = new CustomerLogin();
@@ -42,6 +42,8 @@ public class C_Login implements ActionListener {
             validasiCustLogin();
         } else if (source.equals(viewLogin.getbtnMasukAdmin())) {
             new C_AdmLogin();
+            viewLogin.dispose();
+            
         }
     }
 

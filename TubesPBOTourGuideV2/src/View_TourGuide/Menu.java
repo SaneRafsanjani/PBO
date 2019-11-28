@@ -5,6 +5,7 @@
  */
 package View_TourGuide;
 
+import Controller_TourGuide.C_AdmLogin;
 import javax.swing.JButton;
 
 /**
@@ -248,4 +249,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+
+    public void addActionListener(C_AdmLogin aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

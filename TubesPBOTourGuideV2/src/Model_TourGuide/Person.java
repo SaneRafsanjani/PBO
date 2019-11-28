@@ -23,6 +23,27 @@ public class Person {
         this.emailTourGuide = emailTourGuide;
         this.alamatTourGuide = alamatTourGuide;
     }
+
+    public String getTtlCustomer() {
+        return ttlCustomer;
+    }
+
+    public String getUsernameCustomer() {
+        return usernameCustomer;
+    }
+
+    public String getPasswordCustomer() {
+        return passwordCustomer;
+    }
+
+    public String getEmailTourGuide() {
+        return emailTourGuide;
+    }
+
+    public String getAlamatTourGuide() {
+        return alamatTourGuide;
+    }
      
+    
      
 }
