@@ -10,39 +10,71 @@ package Model_TourGuide;
  * @author rafsa
  */
 public class Person {
-     String ttlCustomer;
-     String usernameCustomer;
-     String passwordCustomer;
-     String emailTourGuide;
-     String alamatTourGuide;
+    String nama;
+    String ttl;
+    String username;
+    String password;
+    String email;
+    String alamat;
 
-    public Person(String ttlCustomer, String usernameCustomer, String passwordCustomer, String emailTourGuide, String alamatTourGuide) {
-        this.ttlCustomer = ttlCustomer;
-        this.usernameCustomer = usernameCustomer;
-        this.passwordCustomer = passwordCustomer;
-        this.emailTourGuide = emailTourGuide;
-        this.alamatTourGuide = alamatTourGuide;
+    public Person(String nama, String ttl, String username, String password, String email, String alamat) {
+        this.nama = nama;
+        this.ttl = ttl;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.alamat = alamat;
     }
 
-    public String getTtlCustomer() {
-        return ttlCustomer;
+    public String getNama() {
+        return nama;
     }
 
-    public String getUsernameCustomer() {
-        return usernameCustomer;
+    public void setNama(String nama) {
+        this.nama = nama;
     }
 
-    public String getPasswordCustomer() {
-        return passwordCustomer;
+    public String getTtl() {
+        return ttl;
     }
 
-    public String getEmailTourGuide() {
-        return emailTourGuide;
+    public void setTtl(String ttl) {
+        this.ttl = ttl;
     }
 
-    public String getAlamatTourGuide() {
-        return alamatTourGuide;
+    public String getUsername() {
+        return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    
      
     
      

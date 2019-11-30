@@ -18,7 +18,6 @@ import java.awt.event.ActionListener;
 public class C_Login implements ActionListener {
 
     private CustomerLogin viewLogin;
-    private CustomerRegistrasi viewRegis;
     private Koneksi kn;
     private String idCustomer;
 
@@ -35,7 +34,7 @@ public class C_Login implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
-        if (e.getSource().equals(viewLogin.getbtnbuatakun())) {
+        if (source.equals(viewLogin.getbtnbuatakun())) {
             new C_Register();
             viewLogin.dispose();
         } else if (source.equals(viewLogin.getbtnmasuk())) {
@@ -43,7 +42,6 @@ public class C_Login implements ActionListener {
         } else if (source.equals(viewLogin.getbtnMasukAdmin())) {
             new C_AdmLogin();
             viewLogin.dispose();
-            
         }
     }
 

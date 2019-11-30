@@ -14,7 +14,7 @@ import java.util.UUID;
 
 /**
  *
- * @author  
+ * @author
  */
 public class C_Register implements ActionListener {
 
@@ -26,8 +26,8 @@ public class C_Register implements ActionListener {
     private String alamatCustomer;
     private String emailCustomer;
     private String ttlCustomer;
-                  
-    
+    private String notelpCustomer;
+
     public C_Register() {
         kn = new Koneksi();
         viewRegis = new CustomerRegistrasi();
@@ -37,24 +37,26 @@ public class C_Register implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-         if (e.getSource().equals(viewRegis.getBtndaftar())) {
+
+        if (e.getSource().equals(viewRegis.getBtndaftar())) {
             namaCustomer = viewRegis.getNamaCustomer();
             alamatCustomer = viewRegis.getalamatCustomer();
             emailCustomer = viewRegis.getEmailCustomer();
             ttlCustomer = viewRegis.getttlCustomer();
             usernameCustomer = viewRegis.getUsernameCustomer();
             passwordCustomer = viewRegis.getPasswordCustomer();
-            
-              String nama;
-        if (usernameCustomer.isEmpty() || passwordCustomer.isEmpty()) {
-            viewRegis.showMessage("Data tidak falid", "Error", 0);
-         }else{
-            kn.addCustomer(new Customer(UUID.randomUUID().toString().substring(0, 19), namaCustomer, alamatCustomer, "0", emailCustomer, ttlCustomer, usernameCustomer, passwordCustomer,"", ""));
-            viewRegis.showMessage("Register Berhasil", "Success", 0);
-            new C_Menu();
-        }
-        
-    }
+            notelpCustomer = viewRegis.getTxtnomortelepon();
+            String idCustomer = UUID.randomUUID().toString().substring(0, 19);
+            if (usernameCustomer.isEmpty() || passwordCustomer.isEmpty()) {
+                viewRegis.showMessage("Data tidak falid", "Error", 0);
+            } else {
+                Customer c = new Customer(idCustomer, notelpCustomer, namaCustomer, ttlCustomer, usernameCustomer, passwordCustomer, emailCustomer, alamatCustomer);
+                kn.addCustomer(c);
+                viewRegis.showMessage("Register Berhasil", "Success", 0);
+                new C_Menu();
+            }
 
-}}
+        }
+
+    }
+}

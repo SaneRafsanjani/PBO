@@ -1,4 +1,3 @@
- 
 package Controller_TourGuide;
 
 import Model_TourGuide.*;
@@ -10,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
- 
+
 public class Koneksi {
 
     private Connection conn = null;
@@ -62,56 +61,47 @@ public class Koneksi {
     }
 
     private void loadCustomer() {
-         connect();
+        connect();
         try {
             String query = "SELECT * FROM customer";
             rs = stmt.executeQuery(query);
-            while (rs.next()){
-                daftarCustomer.add(new Customer(rs.getString("namaCustomer"),rs.getString("idCustomer"),  rs.getString("alamatCustomer"), rs.getString("notelpCustomer"), rs.getString("emailCustomer") , rs.getString("ttlCustomer"), rs.getString("usernameCustomer"), rs.getString("passwordCustomer"), rs.getString("emailTourGuide"), rs.getString("alamatTourGuide") ));
+            while (rs.next()) {
+                daftarCustomer.add(new Customer(rs.getString("idCustomer"), rs.getString("notelpCustomer"), rs.getString("nama"), rs.getString("ttl"), rs.getString("username"), rs.getString("password"), rs.getString("email"), rs.getString("alamat")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Koneksi.class.getName()).log(Level.SEVERE, null, ex);
         }
         disconnect();
     }
-    
- 
-      public ArrayList<Customer> getCustomer() {
+
+    public ArrayList<Customer> getCustomer() {
         return daftarCustomer;
     }
-    
+
     public void addCustomer(Customer cus) {
         connect();
         String query = "INSERT INTO customer VALUES (";
-        query += "'" + cus.getNamaCustomer() + "',";
-        query += "'" + cus.getIdCustomer()+ "',";
-        query += "'" + cus.getAlamatCustomer()+ "',";
-        query += "" + cus.getNotelpCustomer()+ ",";
-        query += "'" + cus.getEmailCustomer()+ "',";
-        query += "'" + cus.getTtlCustomer()  + "',";
-        query += "'" + cus.getUsernameCustomer()+ "',";
-        query += "'" + cus.getPasswordCustomer()+ "',";
-        query += "'" + cus.getEmailTourGuide()+ "',";
-        query += "'" + cus.getAlamatTourGuide()+ "'";
+        query += "'" + cus.getNama() + "',";
+        query += "'" + cus.getIdCustomer() + "',";
+        query += "'" + cus.getAlamat() + "',";
+        query += "'" + cus.getNotelpCustomer() + "',";
+        query += "'" + cus.getEmail() + "',";
+        query += "'" + cus.getUsername() + "',";
+        query += "'" + cus.getPassword() + "',";
+        query += "'" + cus.getTtl() + "'";
         query += ")";
-        if (manipulate(query)) daftarCustomer.add(cus);
+        if (manipulate(query)) {
+            daftarCustomer.add(cus);
+        }
         disconnect();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
     public void delCustomer(String id) {
         connect();
         String query = "DELETE FROM customer WHERE nim='" + id + "'";
-        if (manipulate(query)){
+        if (manipulate(query)) {
             for (Customer c : daftarCustomer) {
-                if (c.getIdCustomer().equals(id)){
+                if (c.getIdCustomer().equals(id)) {
                     daftarCustomer.remove(c);
                     break;
                 }
@@ -119,64 +109,62 @@ public class Koneksi {
         }
         disconnect();
     }
-    
-    public void updateCustomer(Customer cus) {
-        connect();
-        String query = "UPDATE customer SET";
-         query += "'" + cus.getNamaCustomer() + "',";
-        query += "'" + cus.getIdCustomer()+ "',";
-        query += "'" + cus.getAlamatCustomer()+ "',";
-        query += "'" + cus.getNotelpCustomer()+ "'";
-        query += "'" + cus.getEmailCustomer()+ "'";
-        query += "'" + cus.getTtlCustomer()+ "'";
-        query += "'" + cus.getUsernameCustomer()+ "'";
-        query += "'" + cus.getPasswordCustomer()+ "'";
-        if (manipulate(query)){
-            for (Customer c : daftarCustomer) {
-                if (c.getIdCustomer().equals(cus.getIdCustomer())){
-                    c.setIdCustomer(cus.getIdCustomer());
-                    c.setNamaCustomer(cus.getNamaCustomer());
-                    c.setAlamatCustomer(cus.getAlamatCustomer());
-                    c.setNotelpCustomer(cus.getNotelpCustomer());
-                    c.setEmailCustomer(cus.getEmailCustomer());
-                    c.setTtlCustomer(cus.getTtlCustomer());
-                    c.setUsernameCustomer(cus.getUsernameCustomer());
-                    c.setPasswordCustomer(cus.getPasswordCustomer());
-                     
-                     
-                     break;
-                }
-            }
-        }
-        disconnect();
-    }
-    
-    public boolean cekUserLog(String x, String y){
+
+//    public void updateCustomer(Customer cus) {
+//        connect();
+//        String query = "UPDATE customer SET";
+//         query += "'" + cus.getNama() + "',";
+//        query += "'" + cus.getIdCustomer() + "',";
+//        query += "'" + cus.getAlamat()+ "',";
+//        query += "'" + cus.getNotelpCustomer()+ "',";
+//        query += "'" + cus.getEmail()+ "',";
+//        query += "'" + cus.getUsername()+ "',";
+//        query += "'" + cus.getPassword()+ "',";
+//        query += "'" + cus.getTtl()+ "'";
+//        if (manipulate(query)){
+//            for (Customer c : daftarCustomer) {
+//                if (c.getIdCustomer().equals(cus.getIdCustomer())){
+//                    c.setIdCustomer(cus.getIdCustomer());
+//                    c.setNama(cus.getNama());
+//                    c.setAlamat(cus.getAlamat());
+//                    c.setNotelpCustomer(cus.getNotelpCustomer());
+//                    c.setEmail(cus.getEmail());
+//                    c.setTtl(cus.getTtl());
+//                    c.setUsername(cus.getUsername());
+//                    c.setPassword(cus.getPassword());
+//                    break;
+//                }
+//            }
+//        }
+//        disconnect();
+//    }
+//    
+    public boolean cekUserLog(String x, String y) {
         boolean cek = false;
         for (Customer c : daftarCustomer) {
-            if (c.getUsernameCustomer().equals(x) && c.getPasswordCustomer().equals(y)){
+            System.out.println("MASUKAN");
+            System.out.println("username " + x + ".");
+            System.out.println("pass " + y + ".");
+            System.out.println("DATABASE");
+            System.out.println("username " + c.getUsername() + ".");
+            System.out.println("pass " + c.getPassword() + ".");
+            if ((c.getUsername().equals(x)) && (c.getPassword().equals(y))) {
                 cek = true;
                 break;
             }
         }
+        System.out.println("CEK" + cek);
         return cek;
     }
-    
-    public String searchNama(String x){
+
+    public String searchNama(String x) {
         String nama = null;
-        for (Customer c : daftarCustomer){
-            if (c.getNamaCustomer().equals(x)) {
-                nama = c.getNamaCustomer();
+        for (Customer c : daftarCustomer) {
+            if (c.getNama().equals(x)) {
+                nama = c.getNama();
             }
         }
         return nama;
     }
-    
-    
-    
-}
-    
-    
-    
- 
 
+}

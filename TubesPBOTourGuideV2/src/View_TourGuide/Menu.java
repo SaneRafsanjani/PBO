@@ -5,7 +5,8 @@
  */
 package View_TourGuide;
 
-import Controller_TourGuide.C_AdmLogin;
+import Controller_TourGuide.C_Login;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -33,12 +34,13 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jRadioButton1 = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
         btnPakWis = new javax.swing.JButton();
         btnTemWis = new javax.swing.JButton();
         btnTG = new javax.swing.JButton();
         btnPesan = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnPengaturan = new javax.swing.JButton();
         btnKeluar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -49,6 +51,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
+
+        jRadioButton1.setText("jRadioButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,8 +75,8 @@ public class Menu extends javax.swing.JFrame {
         btnPesan.setBackground(new java.awt.Color(204, 204, 204));
         btnPesan.setText("Pemesanan");
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setText("Pengaturan");
+        btnPengaturan.setBackground(new java.awt.Color(204, 204, 204));
+        btnPengaturan.setText("Pengaturan");
 
         btnKeluar.setBackground(new java.awt.Color(204, 204, 204));
         btnKeluar.setText("Keluar");
@@ -122,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnPakWis, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnPengaturan, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,7 +142,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPakWis, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnPengaturan, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTG, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,7 +180,7 @@ public class Menu extends javax.swing.JFrame {
         return btnTemWis;
     }
     
-    public JButton getBtnPakWis(){
+    public JButton getbtnPakWis(){
         return btnPakWis;
     }
     
@@ -189,58 +193,39 @@ public class Menu extends javax.swing.JFrame {
     }
     
     public JButton getbtnPengaturan(){
-        return jButton5;
+        return btnPengaturan;
     }
     
     public JButton getbtnKeluar(){
         return btnKeluar;
     }
     
+    public void addActionListener(ActionListener x) {
+        btnTemWis.addActionListener(x);
+        btnPakWis.addActionListener(x);
+        btnTG.addActionListener(x);
+        btnPesan.addActionListener(x);
+        btnPengaturan.addActionListener(x);
+        btnKeluar.addActionListener(x);
+    }
+    
+//    public void addActionListener(ActionListener x) {
+//        btnKeluar.addActionListener(x);
+//    }
+    
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnKeluar;
     private javax.swing.JButton btnPakWis;
+    private javax.swing.JButton btnPengaturan;
     private javax.swing.JButton btnPesan;
     private javax.swing.JButton btnTG;
     private javax.swing.JButton btnTemWis;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -248,9 +233,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 
-    public void addActionListener(C_AdmLogin aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

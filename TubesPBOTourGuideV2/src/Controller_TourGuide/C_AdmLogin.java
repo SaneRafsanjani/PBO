@@ -15,7 +15,7 @@ import Model_TourGuide.*;
  *
  * @author Fahlar Reva
  */
-public class C_AdmLogin {
+public class C_AdmLogin implements ActionListener {
      
     private Menu viewAdmin;
     private Koneksi kn;
@@ -28,6 +28,11 @@ public class C_AdmLogin {
         viewAdmin = new Menu();
         viewAdmin.addActionListener(this);
         viewAdmin.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

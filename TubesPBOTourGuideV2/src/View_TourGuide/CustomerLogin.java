@@ -36,20 +36,17 @@ public class CustomerLogin extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JPasswordField getTxtpassword() {
-        return txtpassword;
+    public String getTxtpassword() {
+        return txtpassword.getText();
     }
 
-    public void setTxtpassword(JPasswordField txtpassword) {
-        this.txtpassword = txtpassword;
+
+    public String getTxtusername() {
+        return txtusername.getText();
     }
 
-    public JTextField getTxtusername() {
-        return txtusername;
-    }
-
-    public void setTxtusername(JTextField txtusername) {
-        this.txtusername = txtusername;
+    public void setTxtusername(String txtusername) {
+        this.txtusername.setText(txtusername);
     }
 
     /**
@@ -178,11 +175,11 @@ public class CustomerLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnmasukActionPerformed
 
     public String getUsernameCustomer() {
-        return txtusername.toString();
+        return txtusername.getText();
     }
 
     public String getPasswordCustomer() {
-        return txtpassword.toString();
+        return txtpassword.getText();
     }
 
     public void addActionListener(ActionListener x) {

@@ -17,10 +17,10 @@ public class Application {
     List<PaketWisata> daftarPaketWisata;
     List<TempatWisata> daftarTempatWisata;
     
-    public void inputTourGuide(String namaTourGuide,String notelpTourGuide,String idTourGuide,String emailTourGuide,String alamatTourGuide, String usernameCustomer, String passwordCustomer,String ttlCustomer){
-       TourGuide tourguide = new TourGuide(namaTourGuide,notelpTourGuide,idTourGuide,ttlCustomer,usernameCustomer,passwordCustomer,emailTourGuide,alamatTourGuide);
-        this.daftarTourGuide.add(tourguide);
-    }
+//    public void inputTourGuide(String namaTourGuide,String notelpTourGuide,String idTourGuide,String emailTourGuide,String alamatTourGuide, String usernameCustomer, String passwordCustomer,String ttlCustomer){
+//       TourGuide tourguide = new TourGuide()
+//            this.daftarTourGuide.add(tourguide);
+//    }
 
     public List<Customer> getDaftarCustomer() {
         return daftarCustomer;

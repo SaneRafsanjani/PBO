@@ -10,30 +10,16 @@ package Model_TourGuide;
  * @author rafsa
  */
 public class TourGuide extends Person {    
-     String namaTourGuide;
      String notelpTourGuide;
      String idTourGuide;
 
-    public TourGuide(String namaTourGuide, String notelpTourGuide, String idTourGuide, String ttlCustomer, String usernameCustomer, String passwordCustomer, String emailTourGuide, String alamatTourGuide) {
-        super(ttlCustomer, usernameCustomer, passwordCustomer, emailTourGuide, alamatTourGuide);
-        this.namaTourGuide = namaTourGuide;
+    public TourGuide(String notelpTourGuide, String idTourGuide, String nama, String ttl, String username, String password, String email, String alamat) {
+        super(nama, ttl, username, password, email, alamat);
         this.notelpTourGuide = notelpTourGuide;
         this.idTourGuide = idTourGuide;
     }
 
 
-
-    
-   
-   
-   
-    public String getNamaTourGuide() {
-        return namaTourGuide;
-    }
-
-    public void setNamaTourGuide(String namaTourGuide) {
-        this.namaTourGuide = namaTourGuide;
-    }
 
     public String getNotelpTourGuide() {
         return notelpTourGuide;
@@ -50,22 +36,5 @@ public class TourGuide extends Person {
     public void setIdTourGuide(String idTourGuide) {
         this.idTourGuide = idTourGuide;
     }
-
-    public String getEmailTourGuide() {
-        return emailTourGuide;
-    }
-
-    public void setEmailTourGuide(String emailTourGuide) {
-        this.emailTourGuide = emailTourGuide;
-    }
-
-    public String getAlamatTourGuide() {
-        return alamatTourGuide;
-    }
-
-    public void setAlamatTourGuide(String alamatTourGuide) {
-        this.alamatTourGuide = alamatTourGuide;
-    }
-            
   
 }
